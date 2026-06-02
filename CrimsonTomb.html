@@ -36,18 +36,18 @@
                     <br>I added knockback and I-frames similar to the original Castlevania games, and it was quite fun to implement. 
                     A small challenge I faced here was the fact my player script had overwritten the knockback if the player held any horizontal input. 
                     I had it written so that it stops any horizontal movement if there is no horizontal input so that the player doesn't just slide around the floor.
-                    <br><img src="images/Week1/damageLogic.png" width="45%">
+                    <br><img src="images/CrimsonTomb/Week1/damageLogic.png" width="45%">
                     <br><br>When implementing the sprinting ability I decided toggle sprint would be easier for the player, as this game is targeted for PC so holding down shift to could get pretty exhausting after a while. 
                     When stopping movement I also decided to stop sprinting, however it could get pretty annoying to switch directions and have to start sprinting again manually, 
                     so a fun solution I found was to start a coroutine to wait half a second, and then check if the player was moving, turning it off if there was nothing.
-                    <br><img src="images/Week1/sprintLogic.png" width="45%">
+                    <br><img src="images/CrimsonTomb/Week1/sprintLogic.png" width="45%">
                     <br><br>I initially faced an issue with the player sticking to walls if there was movement towards the wall, but it was an easy fix by adding a material to the player where the friction was set to zero. 
                     This gave me the idea to change the friction of the material when trying to wall slide, but that gave an incosistent fall speed due to the fact the player would have different velocities depending on how early or late into a jump or fall they were, 
                     so the solution came down to a few lines of code. I just set the vertical velocity of the player to a set amount if they were intending to wall slide. 
                     While adding the wall slide I had to check if the player was facing the wall to turn them around, so that added a new check, 
                     but then the player would add input to stay in the wall slide instead of just falling, so I added another check to see if the player's back is touching the wall.
                     The wall check ended up being used in the walker enemy so it would turn around if it touched a wall so it stopped running in place.
-                    <br><img src="images/Week1/wallCheckLogic.png" width="45%">
+                    <br><img src="images/CrimsonTomb/Week1/wallCheckLogic.png" width="45%">
                     <br><br>The player and enemy collision was a fun challenge. Getting them to interact and deal damage was no issue, the issue arrived when I wanted the player to take damage when touching an enemy, but not collide with their hitboxes,
                     as that would become a problem if they were surrounded by enemies and just collided with them and ended up stuck on top of them. I tried changing the enemy hitbox to a trigger, but of course they just ended up falling through the floor. 
                     The solution was a Unity feature I wasn't aware of until now, involving layers.
@@ -55,7 +55,7 @@
                     This intially created a new issue, the enemies couldnt actually deal damage to the player and vice versa, as toggling off layer interaction disabled every kind of interaction, uncluding scripts. 
                     The solution was to make an empty child of the enemy with a trigger hitbox, making it the same size as the parent, 
                     and making a new script just to handle damage when interacting with the player, and changing the tag on it back to default as making a child makes in instantly inherit the parents layer and tag.
-                    <br><img src="images/Week1/layerMatrix.png" width="45%">
+                    <br><img src="images/CrimsonTomb/Week1/layerMatrix.png" width="45%">
                 </p>
                 <h2 class="background">Week 2</h2>
                 <p>
@@ -73,6 +73,17 @@
                     I made a few shortcuts if players have the dash or wall slide abilities.
                     <br><br>I made a follow player script which is used for the background and camera objects. I could have made the background a child of the player and made it move along with that object, but the camera isn't updated when moving to a new scene. 
                     I thought it would be simpler to just make a script to follow the player and add it to the camera as well as the background as it makes the player object less crowded with child objects it doesn't need.
+                </p>
+                <h2 class="background">Week4</h2>
+                <p>
+                    This week was slightly different from the previous one. It started with the usual new tilesheet for the area, but I also made reskins for the enemies to better suit the area.
+                    <br><br>As the Ashen Causeway was themed around a burning area, I decided it would be interesting to incorporate a tile which does damage to the player over the course of them staying on it. I had a small issue while trying to implement these damage tiles, 
+                    sometimes the player would take damage too quickly, which was due to a few different reasons. Initially, I didn't know that due to it being on a tilemap collider, each tile would have its own hitbox, and would deal damage too quickly. 
+                    To counteract that issue I added a 1 second timer in between damage ticks using a coroutine, I stopped the coroutine every time the player left the collison, but due to the miniscule bumps in tilemaps, 
+                    the character would hop slightly up and down and lose all health within a second or two. The way I fixed this is by making a coroutine variable in the class, and setting it to null after the loop in the coroutine, 
+                    once the player stops touching the tiles, as well as adding an OnCollisionStay2D just as an extra precaution.
+                    <br><img src="images/CrimsonTomb/Week4/EnvironmentalDamageCollisions.png" width="22.5%">
+                    <br><img src="images/CrimsonTomb/Week4/EnvironmentalDamageRoutine.png" width="22.5%">
                 </p>
             </section>
         </main>
