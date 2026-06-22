@@ -48,7 +48,7 @@
                     but then the player would add input to stay in the wall slide instead of just falling, so I added another check to see if the player's back is touching the wall.
                     The wall check ended up being used in the walker enemy so it would turn around if it touched a wall so it stopped running in place.
                     <br><img src="images/CrimsonTomb/Week1/wallCheckLogic.png" width="45%">
-                    <br><br>The player and enemy collision was a fun challenge. Getting them to interact and deal damage was no issue, the issue arrived when I wanted the player to take damage when touching an enemy, but not collide with their hitboxes,
+                    <br><br>The player and enemy collision was a fun challenge. Getting them to interact and deal damage was no issue, the issue arrived when I wanted the player to take damage when touching an enemy, but not collide with their hitboxes, 
                     as that would become a problem if they were surrounded by enemies and just collided with them and ended up stuck on top of them. I tried changing the enemy hitbox to a trigger, but of course they just ended up falling through the floor. 
                     The solution was a Unity feature I wasn't aware of until now, involving layers.
                     <br><br>Layers in Unity can allow users to select which objects can interact with eachother, and can be toggled in the collision matrix available in the project settings. 
@@ -88,8 +88,8 @@
                 <h2 class="background">Week 5</h2>
                 <p>
                     Most of the same tasks followed into week 5, I made a new set of tiles, enemies, and then created the map for the area in Unity. 
-                    The Bloody Canals levels were fun to design, as my idea for the area was a maze-like, blood covered sewer system, which occasionally featured wall climbing and double jumping to progress, and sometimes to just lead into a dead end to add to the maze like feel. 
-                    <br><br> Outside of the usual level design, I made a small change to the player. The previous hitbox used a capsule collider, which I changed into a box collider with rounded edges. 
+                    The Bloody Canals levels were fun to design, as my idea for the area was a maze-like, blood covered sewer system, which occasionally featured wall climbing and double jumping to progress, and sometimes to just lead into a dead end to add to the maze like feel.
+                    <br><br>Outside of the usual level design, I made a small change to the player. The previous hitbox used a capsule collider, which I changed into a box collider with rounded edges. 
                     This was a needed change because sometimes it felt like the player fell off edges too easily, rounding off the edges was necessary because otherwise the hitbox would get stuck colliding with the tilemap, which is why it was a capsule collider to begin with.
                 </p>
                 <h2 class="background">Week 6</h2>
@@ -98,6 +98,14 @@
                     The levels were exactly as I had imagined them in my head before starting, but they were too bland with nothing going on which made it not just boring to make, but also will probably be the least fun to play. 
                     The way I combated the plain levels was by adding sections where the player would run into a hallway of enemies with platforms above where jumping enemies would spawn from. 
                     This was the first level where there was no new sprites for the enemies, and where I made a second set of tiles for the floor and background because I felt like it would add to the atmosphere of the level.
+                </p>
+                <h2 class="background">Week 7</h2>
+                <p>
+                    This was the last week dedicated to level design, with the final level being the final area in the game.
+                    <br><br>With this being the final area, it needed to be special. I tried to utilise as many of the previous areas as a base for how this level should be made, but that ended up being more difficult than I had thought it would be. 
+                    The reason for that was simply that the previous levels weren't necessarily complex, but worked in their own contexts using themes for each area. Because of that, just reusing the same ideas with a smaller tile palette wouldn't work that well, 
+                    but using the old tiles wouldn't work for this area either.
+                    <br><br>Eventually the level ended up fine, and it also utilised some of the abilities the player got from the previous dungeons.
                 </p>
             </section>
         </main>
