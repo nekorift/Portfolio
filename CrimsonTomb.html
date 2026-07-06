@@ -107,10 +107,28 @@
                     but using the old tiles wouldn't work for this area either.
                     <br><br>Eventually the level ended up fine, and it also utilised some of the abilities the player got from the previous dungeons.
                 </p>
+                <h2 class="background">Week 8</h2>
+                <p>
+                    Starting off the first week of not just making levels, I decided to touch up the player with some final major additions. The first thing I did was edit the way the player moves. 
+                    Attacking while holding down a directional input used to make the player slide around slightly, which felt very unpolished. I fixed by adding an if statement around the movement logic to make sure it only fires when the player isn't attacking.
+                    <br><br>The next thing I tackled was finally adding the vertical attacks. Adding vertical attacks was an interesting challenge, because I want the game to include controller support, I couldnt just make it so that if the player is holding up or down to trigger them. 
+                    My solution to this issue was actually very fun for me to figure out, and had to do with which of the x and y values was larger.
+                    <br><img src="images/CrimsonTomb/Week8/DirectionalAttacks.jpg" width="22.5%">
+                    <br><br>Translating this to code was all actually mostly done where the animation logic was for the player. I first checked the horizontal input, then checked the logic for whether the player should attack down, up, or straight ahead. 
+                    I then repeated the same logic for the other horizontal direction and then no inputed directions. Doing this meant I had to make a coroutine variable, where I handle how long the attack hitbox stays up, 
+                    this was so that quickly changing directions doesn't allow the player to quickly spam attacks over and over. 
+                    <br><img src="images/CrimsonTomb/Week8/DirectionalAttacksLogic.jpg.png" width="22.5%">
+                    <br><img src="images/CrimsonTomb/Week8/AttackLogic.png" width="22.5%">
+                    <br><br> The down attacks also make the player hop sligtly allowing the player to pogo on top of enemies. Allowing players to pogo is actually the reason why I decided to add vertical attacks now, as I was unsure about adding them before, 
+                    but it allows the player to jump over bosses, which are going to be bigger than the regular enemies, and with a few of the things I have in mind for some of them is the reason I ultimately decided it was going to be a key feature. 
+                    Speaking of bosses, that is the next thing I started working on. I made a few animations for a handful of bosses, though some still need to be completed. This time, none of the sprites were traced, including the new vertical attacks for the player.
+                </p>
             </section>
         </main>
+        <!--
         <footer>
 
         </footer>
+        -->
     </body>
 </html>
